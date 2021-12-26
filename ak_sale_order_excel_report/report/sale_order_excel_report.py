@@ -36,7 +36,7 @@ class PartnerXlsx(models.AbstractModel):
                 {'align': 'left', 'bold': True, 'border': 1})
             table_right = workbook.add_format(
                 {'align': 'right', 'bold': True, 'border': 1})
-            date_time = datetime.datetime.strptime('2013-01-23', '%d-%m-%y')
+            date_time = datetime.strptime('2013-01-23', '%d-%m-%y')
             if obj.partner_id.name:
                 customer_data += obj.partner_id.name + '\n'
             if obj.partner_id.street:
