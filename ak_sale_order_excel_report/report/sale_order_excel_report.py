@@ -20,12 +20,12 @@ class PartnerXlsx(models.AbstractModel):
                     'font_color': 'black', 'border': 1})
             table_header_left = workbook.add_format(
                 {'bg_color': 'black', 'align': 'left', 'font_size': 12,
-                    'font_color': 'white', 'border': 1})
+                    'font_color': 'white', 'border': 1, 'bold': True})
             table_row_left = workbook.add_format(
                 {'align': 'left', 'font_size': 12, 'border': 1, 'bold': True})
             table_header_right = workbook.add_format(
-                {'bg_color': 'black', 'align': 'right', 'font_size': 12,
-                    'font_color': 'white', 'border': 1})
+                {'align': 'right', 'font_size': 12,
+                    'font_color': 'black', 'border': 1, 'bold': True})
             table_row_right = workbook.add_format(
                 {'align': 'right', 'font_size': 12, 'border': 1})
             customer_header_format = workbook.add_format({
