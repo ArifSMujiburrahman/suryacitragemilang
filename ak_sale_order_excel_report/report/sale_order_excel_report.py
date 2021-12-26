@@ -13,16 +13,16 @@ class PartnerXlsx(models.AbstractModel):
         for obj in partners:
             customer_data = ''
             company_format = workbook.add_format(
-                {'bg_color': 'black', 'align': 'center', 'font_size': 25,
-                    'font_color': 'white'})
+                {'align': 'center', 'font_size': 25,
+                    'font_color': 'black'})
             order_format = workbook.add_format(
-                {'bg_color': 'black', 'align': 'center', 'font_size': 14,
-                    'font_color': 'white', 'border': 1})
+                {'align': 'center', 'font_size': 14,
+                    'font_color': 'black', 'border': 1})
             table_header_left = workbook.add_format(
                 {'bg_color': 'black', 'align': 'left', 'font_size': 12,
-                    'font_color': 'white'})
+                    'font_color': 'white', 'border': 1})
             table_row_left = workbook.add_format(
-                {'align': 'left', 'font_size': 12, 'border': 1})
+                {'align': 'left', 'font_size': 12, 'border': 1, 'bold': True})
             table_header_right = workbook.add_format(
                 {'bg_color': 'black', 'align': 'right', 'font_size': 12,
                     'font_color': 'white', 'border': 1})
