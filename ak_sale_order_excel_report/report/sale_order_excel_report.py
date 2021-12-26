@@ -36,6 +36,7 @@ class PartnerXlsx(models.AbstractModel):
                 {'align': 'left', 'bold': True, 'border': 1})
             table_right = workbook.add_format(
                 {'align': 'right', 'bold': True, 'border': 1})
+            date_time = datetime.datetime.strptime('2013-01-23', '%d-%m-%y')
             if obj.partner_id.name:
                 customer_data += obj.partner_id.name + '\n'
             if obj.partner_id.street:
@@ -59,7 +60,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'C7:D7', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'E7:F7', str(obj.date_order.date()), customer_format)
+                    'E7:F7', str(obj.date_order.date()), date_time)
             elif obj.state in ['draft', 'sent']:
                 worksheet.merge_range(
                     'A5:F5', 'Quotation :- ' + obj.name, order_format)
@@ -71,7 +72,7 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.merge_range(
                 'A7:B7', 'Customer', customer_header_format)
             worksheet.merge_range(
-                'A8:A8', customer_data, customer_format)
+                'A8:B8', customer_data, customer_format)
             worksheet.merge_range(
                 'C8:D8', 'Salesperson', customer_header_format)
             worksheet.merge_range(
