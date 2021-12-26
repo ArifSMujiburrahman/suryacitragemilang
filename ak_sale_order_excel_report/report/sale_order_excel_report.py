@@ -19,8 +19,8 @@ class PartnerXlsx(models.AbstractModel):
                 {'align': 'center', 'font_size': 14,
                     'font_color': 'black', 'border': 1})
             table_header_left = workbook.add_format(
-                {'bg_color': 'black', 'align': 'left', 'font_size': 12,
-                    'font_color': 'white', 'border': 1, 'bold': True})
+                {'align': 'left', 'font_size': 12,
+                    'font_color': 'black', 'border': 1, 'bold': True})
             table_row_left = workbook.add_format(
                 {'align': 'left', 'font_size': 12, 'border': 1, 'bold': True})
             table_header_right = workbook.add_format(
@@ -71,7 +71,7 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.merge_range(
                 'A7:B7', 'Customer', customer_header_format)
             worksheet.merge_range(
-                'A8:B12', customer_data, customer_format)
+                'A8:A8', customer_data, customer_format)
             worksheet.merge_range(
                 'C8:D8', 'Salesperson', customer_header_format)
             worksheet.merge_range(
