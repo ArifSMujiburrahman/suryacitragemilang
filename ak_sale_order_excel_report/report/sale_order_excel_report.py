@@ -67,7 +67,7 @@ class PartnerXlsx(models.AbstractModel):
                     'C4:D4', 'Quotation Date', customer_header_format)
                 worksheet.merge_range(
                     'C5:D5', str(obj.date_order.date()), customer_format)
-            worksheet.merge_range('A6:F6', '')
+            #worksheet.merge_range('A6:F6', '')
             worksheet.merge_range(
                 'A4:B4', 'Customer', customer_header_format)
             worksheet.merge_range(
@@ -91,10 +91,10 @@ class PartnerXlsx(models.AbstractModel):
                     'C9:D9', 'Payment Terms', customer_header_format)
                 worksheet.merge_range(
                     'E9:F9', obj.payment_term_id.name, customer_format)
-            worksheet.merge_range('E12:F12', 'PENGIRIM :', customer_format)
-            worksheet.merge_range('E17:F17', 'KEPALA OUTLET :', customer_format)
-            worksheet.merge_range('E22:F22', 'KEUANGAN :', customer_format)
-            worksheet.merge_range('A1:F1', 'Lembar 1: KEUANGAN,           Lembar 2: OUTLET,           lEMBAR 3 : FILE', customer_format)
+            worksheet.merge_range('E6:F12', 'PENGIRIM :', customer_format)
+            worksheet.merge_range('E13:F17', 'KEPALA OUTLET :', customer_format)
+            worksheet.merge_range('E18:F22', 'KEUANGAN :', customer_format)
+            worksheet.merge_range('A1:F1', 'Lembar 1: KEUANGAN,           Lembar 2: OUTLET,           Lembar 3 : FILE', customer_format)
             
             
             row = 5
