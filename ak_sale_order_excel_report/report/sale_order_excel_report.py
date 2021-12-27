@@ -22,12 +22,12 @@ class PartnerXlsx(models.AbstractModel):
                 {'align': 'left', 'font_size': 12,
                     'font_color': 'black', 'border': 1, 'bold': True})
             table_row_left = workbook.add_format(
-                {'align': 'left', 'font_size': 12, 'border': 1, 'bold': True})
+                {'align': 'left', 'font_size': 12, 'border': 1})
             table_header_right = workbook.add_format(
                 {'align': 'right', 'font_size': 12,
                     'font_color': 'black', 'border': 1, 'bold': True})
             table_row_right = workbook.add_format(
-                {'align': 'right', 'font_size': 12, 'border': 1})
+                {'align': 'right', 'font_size': 12, 'border': 1,'num_format': '#,##0'})
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 13, 'bold': True, 'border': 1})
             customer_format = workbook.add_format({
@@ -35,7 +35,7 @@ class PartnerXlsx(models.AbstractModel):
             table_left = workbook.add_format(
                 {'align': 'left', 'bold': True, 'border': 1})
             table_right = workbook.add_format(
-                {'align': 'right', 'bold': True, 'border': 1})
+                {'align': 'right', 'bold': True, 'border': 1,'num_format': '#,##0'})
             if obj.partner_id.name:
                 customer_data += obj.partner_id.name + '\n'
             if obj.partner_id.street:
