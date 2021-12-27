@@ -13,25 +13,25 @@ class PartnerXlsx(models.AbstractModel):
         for obj in partners:
             customer_data = ''
             company_format = workbook.add_format(
-                {'align': 'center', 'font_size': 16,
+                {'align': 'center', 'font_size': 14,
                     'font_color': 'black', 'bold': True, 'border': 1})
             order_format = workbook.add_format(
-                {'align': 'center', 'font_size': 14,
+                {'align': 'center', 'font_size': 12,
                     'font_color': 'black', 'border': 1})
             table_header_left = workbook.add_format(
-                {'align': 'left', 'font_size': 12,
+                {'align': 'left', 'font_size': 10,
                     'font_color': 'black', 'border': 1, 'bold': True})
             table_row_left = workbook.add_format(
-                {'align': 'left', 'font_size': 12, 'border': 1})
+                {'align': 'left', 'font_size': 10, 'border': 1})
             table_header_right = workbook.add_format(
-                {'align': 'right', 'font_size': 12,
+                {'align': 'right', 'font_size': 10,
                     'font_color': 'black', 'border': 1, 'bold': True})
             table_row_right = workbook.add_format(
-                {'align': 'right', 'font_size': 12, 'border': 1,'num_format': '#,##0'})
+                {'align': 'right', 'font_size': 10, 'border': 1,'num_format': '#,##0'})
             customer_header_format = workbook.add_format({
-                'align': 'center', 'font_size': 13, 'border': 1})
+                'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 13, 'border': 1, 'bold': True})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
