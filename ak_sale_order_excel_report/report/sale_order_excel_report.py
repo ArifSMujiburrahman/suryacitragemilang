@@ -55,7 +55,7 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.merge_range('A3:F3', 'Antapani Kidul Jl. Sindangkasih No. 4 Tlp. 081394068512', customer_header_format)
             if obj.state not in ['draft', 'sent']:
                 worksheet.merge_range(
-                    'E5:F5', 'Order :- ' + obj.name, order_format)
+                    'E5:F5', 'Order :- ' + obj.name, customer_format)
                 worksheet.merge_range(
                     'C4:D4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
