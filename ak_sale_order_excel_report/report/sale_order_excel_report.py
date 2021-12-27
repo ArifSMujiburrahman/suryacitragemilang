@@ -130,7 +130,7 @@ class PartnerXlsx(models.AbstractModel):
             row += 1
 
             for line in obj.order_line:
-                worksheet.write(row, 0, line.product_uom, table_row_left)
+                worksheet.write(row, 0, line.name, table_row_left)
                 worksheet.write(row, 1, line.product_uom_qty, table_row_right)
                 worksheet.write(row, 2, line.price_unit, table_row_right)
                 #worksheet.write(row, 6, line.product_uom, table_row_right)
