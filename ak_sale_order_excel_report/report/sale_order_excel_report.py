@@ -91,13 +91,15 @@ class PartnerXlsx(models.AbstractModel):
                     'C9:D9', 'Payment Terms', customer_header_format)
                 worksheet.merge_range(
                     'E9:F9', obj.payment_term_id.name, customer_format)
-            worksheet.merge_range('A13:I13', '')
-
-            row = 8
+            worksheet.merge_range('E12:F12', 'PENGIRIM', customer_format)
+            worksheet.merge_range('E17:F17', 'PENGIRIM', customer_format)
+            worksheet.merge_range('E22:F22', 'PENGIRIM', customer_format)
+            
+            row = 5
             worksheet.set_column('A:A', 40)
-            worksheet.set_column('B:B', 15)
-            worksheet.set_column('C:C', 15)
-            worksheet.set_column('D:D', 15)
+            worksheet.set_column('B:B', 10)
+            worksheet.set_column('C:C', 10)
+            worksheet.set_column('D:D', 12)
             worksheet.set_column('E:E', 15)
             worksheet.set_column('F:F', 15)
 
