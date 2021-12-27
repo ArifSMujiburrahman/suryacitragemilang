@@ -59,7 +59,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'C7:D7', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'C8:C8', str(obj.date_order.date()), customer_format)
+                    'C8:D8', str(obj.date_order.date()), customer_format)
             elif obj.state in ['draft', 'sent']:
                 worksheet.merge_range(
                     'A5:F5', 'Quotation :- ' + obj.name, order_format)
