@@ -13,7 +13,7 @@ class PartnerXlsx(models.AbstractModel):
         for obj in partners:
             customer_data = ''
             company_format = workbook.add_format(
-                {'align': 'center', 'font_size': 25,
+                {'align': 'center', 'font_size': 16,
                     'font_color': 'black'})
             order_format = workbook.add_format(
                 {'align': 'center', 'font_size': 14,
@@ -52,10 +52,10 @@ class PartnerXlsx(models.AbstractModel):
                 customer_data += '\n' + str(obj.partner_id.country_id.name)
             worksheet = workbook.add_worksheet(obj.name)
             worksheet.merge_range('A2:F3', obj.company_id.name, company_format)
-            worksheet.merge_range('A4:F4', '')
+            worksheet.merge_range('A4:F4', 'Antapani Kidul Jl. Sindangkasih No. 4 Tlp. 081394068512', customer_header_format)
             if obj.state not in ['draft', 'sent']:
                 worksheet.merge_range(
-                    'A5:F5', 'Order :- ' + obj.name, order_format)
+                    'E8:F8', 'Order :- ' + obj.name, order_format)
                 worksheet.merge_range(
                     'C7:D7', 'Order Date', customer_header_format)
                 worksheet.merge_range(
@@ -73,9 +73,9 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.merge_range(
                 'A8:B8', customer_data, customer_format)
             worksheet.merge_range(
-                'C8:D8', 'Salesperson', customer_header_format)
-            worksheet.merge_range(
-                'E8:F8', obj.user_id.name, customer_format)
+                'C8:D8', 'Order No:', customer_header_format)
+            #worksheet.merge_range(
+            #    'E8:F8', obj.user_id.name, customer_format)
             if obj.client_order_ref:
                 worksheet.merge_range(
                     'C9:D9', 'Your Reference', customer_header_format)
