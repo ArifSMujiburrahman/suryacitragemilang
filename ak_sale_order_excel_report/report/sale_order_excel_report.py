@@ -96,7 +96,7 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.merge_range('E6:F10', 'PENGIRIM :', customer_format)
             worksheet.merge_range('E11:F16', 'KEPALA OUTLET :', customer_format)
             worksheet.merge_range('E17:F22', 'KEUANGAN :', customer_format)
-            worksheet.merge_range('A1:F1', 'Lembar 1: KEUANGAN,              Lembar 2: OUTLET,               Lembar 3 : FILE', customer_format)
+            worksheet.merge_range('A1:F1', 'Lembar 1: KEUANGAN,              Lembar 2: OUTLET,               Lembar 3 : FILE', header_format)
             
             
             row = 5
