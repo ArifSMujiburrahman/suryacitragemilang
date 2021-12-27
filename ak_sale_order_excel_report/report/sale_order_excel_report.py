@@ -14,7 +14,7 @@ class PartnerXlsx(models.AbstractModel):
             customer_data = ''
             company_format = workbook.add_format(
                 {'align': 'center', 'font_size': 16,
-                    'font_color': 'black'})
+                    'font_color': 'black', 'bold': True, 'border': 1})
             order_format = workbook.add_format(
                 {'align': 'center', 'font_size': 14,
                     'font_color': 'black', 'border': 1})
@@ -29,7 +29,7 @@ class PartnerXlsx(models.AbstractModel):
             table_row_right = workbook.add_format(
                 {'align': 'right', 'font_size': 12, 'border': 1,'num_format': '#,##0'})
             customer_header_format = workbook.add_format({
-                'align': 'center', 'font_size': 13, 'bold': True, 'border': 1})
+                'align': 'center', 'font_size': 13, 'border': 1})
             customer_format = workbook.add_format({
                 'align': 'center', 'font_size': 13, 'border': 1})
             table_left = workbook.add_format(
