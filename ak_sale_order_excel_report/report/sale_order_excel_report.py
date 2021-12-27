@@ -101,7 +101,7 @@ class PartnerXlsx(models.AbstractModel):
             
             row = 5
             worksheet.set_column('A:A', 40)
-            worksheet.set_column('B:B', 10)
+            worksheet.set_column('B:B', 8)
             worksheet.set_column('C:C', 10)
             worksheet.set_column('D:D', 12)
             worksheet.set_column('E:E', 9)
