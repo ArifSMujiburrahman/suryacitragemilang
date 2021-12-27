@@ -57,7 +57,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'E8:F8', 'Order :- ' + obj.name, order_format)
                 worksheet.merge_range(
-                    'C7:D7', 'Order Date', customer_header_format)
+                    'C8:D8', 'Order Date', customer_header_format)
                 worksheet.merge_range(
                     'E7:F7', str(obj.date_order.date()), customer_format)
             elif obj.state in ['draft', 'sent']:
@@ -65,15 +65,15 @@ class PartnerXlsx(models.AbstractModel):
                     'A5:F5', 'Quotation :- ' + obj.name, order_format)
                 worksheet.merge_range(
                     'C7:D7', 'Quotation Date', customer_header_format)
-                worksheet.merge_range(
-                    'C8:D8', str(obj.date_order.date()), customer_format)
+                #worksheet.merge_range(
+                #    'C8:D8', str(obj.date_order.date()), customer_format)
             worksheet.merge_range('A6:F6', '')
             worksheet.merge_range(
                 'A7:B7', 'Customer', customer_header_format)
             worksheet.merge_range(
                 'A8:B8', customer_data, customer_format)
             worksheet.merge_range(
-                'E8:F8', 'Order No:', customer_header_format)
+                'E7:F7', 'Order No:', customer_header_format)
             #worksheet.merge_range(
             #    'E8:F8', obj.user_id.name, customer_format)
             if obj.client_order_ref:
