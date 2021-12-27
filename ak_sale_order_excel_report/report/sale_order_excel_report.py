@@ -104,8 +104,8 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.set_column('B:B', 10)
             worksheet.set_column('C:C', 10)
             worksheet.set_column('D:D', 12)
-            worksheet.set_column('E:E', 15)
-            worksheet.set_column('F:F', 15)
+            worksheet.set_column('E:E', 9)
+            worksheet.set_column('F:F', 9)
 
             group = self.env.user.has_group(
                 'product.group_discount_per_so_line')
