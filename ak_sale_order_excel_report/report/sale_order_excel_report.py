@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Aktiv Softwarea
+# Part of Aktiv Software
+# See LICENSE file for full copyright & licensing details.
+
+from odoo import models
+
+class PartnerXlsx(models.AbstractModel):
+    _name = 'report.ak_sale_order_excel_report.sale_xlsx'
+    _description = 'Sale Oder Excle Report'
+    _inherit = 'report.report_xlsx.abstract'
+
     def generate_xlsx_report(self, workbook, data, partners):
         for obj in partners:
             customer_data = ''
@@ -22,7 +31,7 @@
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'num_format':'d mmm yyyy'})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
@@ -52,16 +61,14 @@
                 worksheet.merge_range(
                     'D4:E4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'D5:E5', str(obj.date_order.date()),customer_format)
+                    'D5:E5', str(obj.date_order.date()), customer_format)
             elif obj.state in ['draft', 'sent']:
                 worksheet.merge_range(
-                    'F4:G4', 'Quotation :- ' + obj.name, order_format)
+                    'A5:C5', 'Quotation :- ' + obj.name, order_format)
                 worksheet.merge_range(
-                    'F5:G5', 'Order :- ' + obj.name, customer_format)
+                    'C4:D4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'D4:E4', 'Order Date:', customer_header_format)
-                worksheet.merge_range(
-                    'D5:E5', str(obj.validity_date), customer_format)
+                    'C5:D5', str(obj.validated_date), customer_format)
             #worksheet.merge_range('A6:6', '')
             worksheet.merge_range(
                 'A4:C4', 'Customer', customer_header_format)
