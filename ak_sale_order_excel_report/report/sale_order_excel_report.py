@@ -3,7 +3,11 @@
 # See LICENSE file for full copyright & licensing details.
 
 from odoo import models
-import datetime
+import pandas as pd
+data = pd.DataFrame({'test_date':pd.date_range('1/1/2011', periods=12, freq='M') })
+
+data.test_date = data.test_date - pd.datetime(1899, 12, 31)
+
 
 class PartnerXlsx(models.AbstractModel):
     _name = 'report.ak_sale_order_excel_report.sale_xlsx'
@@ -32,7 +36,7 @@ class PartnerXlsx(models.AbstractModel):
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'datetime': 'd mmm yyyy'})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'num_format':'mm/dd/yyyy'})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
