@@ -3,6 +3,7 @@
 # See LICENSE file for full copyright & licensing details.
 
 from odoo import models
+from datetime import datetime
 
 class PartnerXlsx(models.AbstractModel):
     _name = 'report.ak_sale_order_excel_report.sale_xlsx'
