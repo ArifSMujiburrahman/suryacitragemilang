@@ -3,7 +3,15 @@
 # See LICENSE file for full copyright & licensing details.
 
 from odoo import models
-from datetime import datetime
+import pandas as pd
+from datetime import datetime, date
+df = pd.DataFrame({'Dates only':    [date(2015, 2, 1),
+                                     date(2015, 2, 2),
+                                     date(2015, 2, 3),
+                                     date(2015, 2, 4),
+                                     date(2015, 2, 5)],
+writer = pd.ExcelWriter(engine='xlsxwriter',
+                        date_format='mmmm dd yyyy')
 
 class PartnerXlsx(models.AbstractModel):
     _name = 'report.ak_sale_order_excel_report.sale_xlsx'
@@ -62,7 +70,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'D4:E4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'D5:E5', str(obj.date_order.date()), customer_format)
+                    'D5:E5', str(obj.date_order.date()), writer)
             elif obj.state in ['draft', 'sent']:
                 worksheet.merge_range(
                     'F4:G4', 'Quotation :- ' + obj.name, order_format)
@@ -71,7 +79,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'D4:E4', 'Order Date:', customer_header_format)
                 worksheet.merge_range(
-                    'D5:E5', str(obj.validity_date), customer_format)
+                    'D5:E5', str(obj.validity_date), writer)
             #worksheet.merge_range('A6:6', '')
             worksheet.merge_range(
                 'A4:C4', 'Customer', customer_header_format)
