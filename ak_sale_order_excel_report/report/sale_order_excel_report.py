@@ -3,11 +3,7 @@
 # See LICENSE file for full copyright & licensing details.
 
 from odoo import models
-import pandas as pd
-data = pd.DataFrame({'test_date':pd.date_range('1/1/2011', periods=12, freq='M') })
-
-data.test_date = data.test_date - pd.datetime(1899, 12, 31)
-
+from datetime import datetime
 
 class PartnerXlsx(models.AbstractModel):
     _name = 'report.ak_sale_order_excel_report.sale_xlsx'
