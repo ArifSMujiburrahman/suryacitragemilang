@@ -31,7 +31,7 @@ class PartnerXlsx(models.AbstractModel):
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'num_format':'mm/dd/yyyy'})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'datetime':'mm/dd/yyyy'})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
