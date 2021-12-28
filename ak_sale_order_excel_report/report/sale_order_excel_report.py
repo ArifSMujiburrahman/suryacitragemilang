@@ -31,7 +31,7 @@ class PartnerXlsx(models.AbstractModel):
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'date': 'd mmm yyyy'})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
@@ -70,7 +70,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'D4:E4', 'Order Date:', customer_header_format)
                 worksheet.merge_range(
-                    'D5:E5', str(obj.validity_date.number), customer_format)
+                    'D5:E5', str(obj.validity_date), customer_format)
             #worksheet.merge_range('A6:6', '')
             worksheet.merge_range(
                 'A4:C4', 'Customer', customer_header_format)
