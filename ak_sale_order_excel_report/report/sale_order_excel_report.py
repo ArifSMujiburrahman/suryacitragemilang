@@ -5,6 +5,7 @@
 from odoo import models
 from datetime import datetime
 
+
 class PartnerXlsx(models.AbstractModel):
     _name = 'report.ak_sale_order_excel_report.sale_xlsx'
     _description = 'Sale Oder Excle Report'
@@ -32,7 +33,7 @@ class PartnerXlsx(models.AbstractModel):
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'datetime':'mm/dd/yyyy'})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'datetime':'d mmm yyyy'})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
@@ -62,7 +63,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'D4:E4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'D5:E5', str(obj.date_order.date()), customer_format)
+                    'D5:E5', str(obj.date_order.date(datetime.strptime("2021-08-08", "%d %b %Y")))
             elif obj.state in ['draft', 'sent']:
                 worksheet.merge_range(
                     'F4:G4', 'Quotation :- ' + obj.name, order_format)
