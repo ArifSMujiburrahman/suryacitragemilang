@@ -135,7 +135,7 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.write(row, 1, line.product_uom_qty, table_row_right)
                 worksheet.write(row, 2, line.price_unit, table_row_right)
                 #worksheet.write(row, 6, line.product_uom.id, table_row_right)
-                worksheet.write(row, 6, line.product_uom.uom_uom, table_row_right)
+                worksheet.write(row, 6, line.product_uom_category.id, table_row_right)
                 if display_discount and group:
                     worksheet.write(row, 3, line.discount, table_row_right)
                     if display_tax and line.tax_id:
