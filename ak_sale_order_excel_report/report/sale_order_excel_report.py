@@ -115,26 +115,7 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.write(row, 1, 'Quantity', table_header_right)
             worksheet.write(row, 2, 'Unit Price', table_header_right)
             worksheet.write(row, 6, 'Satuan', table_header_right)
-            
-             for line, line_data in lines:
-            product = line.product_id.id
-            uom = line.product_uom_id
-            qty = line.product_qty
-            if components.get(product, False):
-                if uom.id != components[product]['uom']:
-                    from_uom = uom
-                    to_uom = self.env['product.uom'].browse(components[product]['uom'])
-                    qty = from_uom._compute_quantity(qty, to_uom)
-                components[product]['qty'] += qty
-            else:
-                # To be in the uom reference of the product
-                to_uom = self.env['product.product'].browse(product).uom_id
-                if uom.id != to_uom.id:
-                    from_uom = uom
-                    qty = from_uom._compute_quantity(qty, to_uom)
-                components[product] = {'qty': qty, 'uom': to_uom.id}
-            
-            
+           
             if display_discount and group:
                 worksheet.write(row, 3, 'Disc.%', table_header_right)
                 if display_tax:
@@ -153,7 +134,8 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.write(row, 0, line.name, table_row_left)
                 worksheet.write(row, 1, line.product_uom_qty, table_row_right)
                 worksheet.write(row, 2, line.price_unit, table_row_right)
-                worksheet.write(row, 6, line.uom.id, table_row_left)
+                #worksheet.write(row, 6, line.uom.id, table_row_left)
+                worksheet.write(row, 6, self.product_id.uom_id.id, , table_row_left)
                 if display_discount and group:
                     worksheet.write(row, 3, line.discount, table_row_right)
                     if display_tax and line.tax_id:
