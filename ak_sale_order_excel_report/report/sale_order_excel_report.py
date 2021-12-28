@@ -4,14 +4,7 @@
 
 from odoo import models
 import pandas as pd
-from datetime import datetime, date
-df = pd.DataFrame({'Dates only':    [date(2015, 2, 1),
-                                     date(2015, 2, 2),
-                                     date(2015, 2, 3),
-                                     date(2015, 2, 4),
-                                     date(2015, 2, 5)],
-writer = pd.ExcelWriter(engine='xlsxwriter',
-                        date_format='mmmm dd yyyy')
+from datetime import date
 
 class PartnerXlsx(models.AbstractModel):
     _name = 'report.ak_sale_order_excel_report.sale_xlsx'
@@ -45,6 +38,8 @@ class PartnerXlsx(models.AbstractModel):
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
                 {'align': 'left', 'bold': True, 'border': 1})
+            writer = pd.ExcelWriter(engine='xlsxwriter',
+                        date_format='dd mmm yyyy')
             table_right = workbook.add_format(
                 {'align': 'right', 'bold': True, 'border': 1,'num_format': '#,##0'})
             if obj.partner_id.name:
