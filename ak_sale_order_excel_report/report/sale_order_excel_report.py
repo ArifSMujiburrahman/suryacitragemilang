@@ -66,6 +66,8 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.merge_range(
                     'A5:C5', 'Quotation :- ' + obj.name, order_format)
                 worksheet.merge_range(
+                    'F5:G5', 'Order :- ' + obj.name, customer_format)
+                worksheet.merge_range(
                     'D4:E4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
                     'D5:E5', str(obj.validity_date), customer_format)
