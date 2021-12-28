@@ -53,31 +53,31 @@ class PartnerXlsx(models.AbstractModel):
             if obj.partner_id.country_id:
                 customer_data += '\n' + str(obj.partner_id.country_id.name)
             worksheet = workbook.add_worksheet(obj.name)
-            worksheet.merge_range('A2:F2', obj.company_id.name, company_format)
-            worksheet.merge_range('A3:F3', 'Antapani Kidul Jl. Sindangkasih No. 4 Tlp. 081394068512', customer_header_format)
+            worksheet.merge_range('A2:G2', obj.company_id.name, company_format)
+            worksheet.merge_range('A3:G3', 'Antapani Kidul Jl. Sindangkasih No. 4 Tlp. 081394068512', customer_header_format)
             if obj.state not in ['draft', 'sent']:
                 worksheet.merge_range(
-                    'E5:F5', 'Order :- ' + obj.name, customer_format)
+                    'F5:G5', 'Order :- ' + obj.name, customer_format)
                 worksheet.merge_range(
-                    'C4:D4', 'Order Date', customer_header_format)
+                    'D4:E4', 'Order Date', customer_header_format)
                 worksheet.merge_range(
-                    'C5:D5', str(obj.date_order.date()), customer_format)
+                    'D5:C5', str(obj.date_order.date()), customer_format)
             elif obj.state in ['draft', 'sent']:
                 worksheet.merge_range(
-                    'A:F5', 'Quotation :- ' + obj.name, order_format)
+                    'A5:F5', 'Quotation :- ' + obj.name, order_format)
                 worksheet.merge_range(
                     'C4:D4', 'Quotation Date', customer_header_format)
                 worksheet.merge_range(
                     'C5:D5', str(obj.date_order.date()), customer_format)
-            #worksheet.merge_range('A6:F6', '')
+            #worksheet.merge_range('A6:6', '')
             worksheet.merge_range(
-                'A4:B4', 'Customer', customer_header_format)
+                'A4:C4', 'Customer', customer_header_format)
             worksheet.merge_range(
-                'A5:B5', customer_data, customer_format)
+                'A5:C5', customer_data, customer_format)
             worksheet.merge_range(
-                'E4:F4', 'Order No:', customer_header_format)
+                'F4:G4', 'Order No:', customer_header_format)
             #worksheet.merge_range(
-            #    'E8:F8', obj.user_id.name, customer_format)
+            #    'F8:G8', obj.user_id.name, customer_format)
             if obj.client_order_ref:
                 worksheet.merge_range(
                     'C9:D9', 'Your Reference', customer_header_format)
@@ -102,10 +102,11 @@ class PartnerXlsx(models.AbstractModel):
             row = 5
             worksheet.set_column('A:A', 40)
             worksheet.set_column('B:B', 5)
-            worksheet.set_column('C:C', 10)
+            worksheet.set_column('C:C', 9)
             worksheet.set_column('D:D', 12)
-            worksheet.set_column('E:E', 9)
+            worksheet.set_column('E:E', 12)
             worksheet.set_column('F:F', 9)
+            worksheet.set_column('G:G', 9)
 
 
             group = self.env.user.has_group(
