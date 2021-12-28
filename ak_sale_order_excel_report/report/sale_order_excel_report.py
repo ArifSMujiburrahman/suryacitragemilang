@@ -71,7 +71,7 @@ class PartnerXlsx(models.AbstractModel):
                     'D5:E5', str(obj.validity_date), customer_format)
             #worksheet.merge_range('A6:6', '')
             worksheet.merge_range(
-                'A4:C5', 'Customer', customer_header_format)
+                'A4:C4', 'Customer', customer_header_format)
             worksheet.merge_range(
                 'A5:C5', customer_data, customer_format)
             worksheet.merge_range(
