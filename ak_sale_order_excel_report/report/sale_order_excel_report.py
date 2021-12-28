@@ -222,7 +222,7 @@ class PartnerXlsx(models.AbstractModel):
 #            worksheet.write(row, 1, 'Quantity', table_header_right)
 #            worksheet.write(row, 2, 'Unit Price', table_header_right)
 #            worksheet.write(row, 6, 'Satuan', table_header_right)
-           
+#           
 #            if display_discount and group:
 #                worksheet.write(row, 3, 'Disc.%', table_header_right)
 #                if display_tax:
@@ -236,7 +236,7 @@ class PartnerXlsx(models.AbstractModel):
 #            else:
 #                worksheet.write(row, 3, 'Amount', table_header_right)
 #            row += 1
-
+#
 #            for line in obj.order_line:
 #                worksheet.write(row, 0, line.name, table_row_left)
 #                worksheet.write(row, 1, line.product_uom_qty, table_row_right)
@@ -320,3 +320,4 @@ class PartnerXlsx(models.AbstractModel):
 #                worksheet.write(row + 2, 4, obj.amount_tax, table_right)
 #                worksheet.write(row + 3, 3, 'Total', table_left)
 #                worksheet.write(row + 3, 4, obj.amount_total, table_right)
+#
