@@ -209,3 +209,107 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.write(row + 2, 4, obj.amount_tax, table_right)
                 worksheet.write(row + 3, 3, 'Total', table_left)
                 worksheet.write(row + 3, 4, obj.amount_total, table_right)
+            
+            
+            #group = self.env.user.has_group(
+            #    'product.group_discount_per_so_line')
+            #display_discount = any([l.discount for l in obj.order_line])
+            #display_tax = any([l.tax_id for l in obj.order_line])
+            #worksheet.write(row, 0, 'Product', table_header_left)
+            #worksheet.write(row, 1, 'Quantity', table_header_right)
+            #worksheet.write(row, 2, 'Unit Price', table_header_right)
+            #if display_discount and group:
+            #    worksheet.write(row, 3, 'Disc.%', table_header_right)
+            #    if display_tax:
+            #        worksheet.write(row, 4, 'Taxes', table_header_right)
+            #        worksheet.write(row, 5, 'Amount', table_header_right)
+            #    else:
+            #        worksheet.write(row, 4, 'Amount', table_header_right)
+            #elif display_tax:
+            #    worksheet.write(row, 3, 'Taxes', table_header_right)
+            #    worksheet.write(row, 4, 'Amount', table_header_right)
+            #else:
+            #    worksheet.write(row, 3, 'Amount', table_header_right)
+            #row += 1
+
+            #for line in obj.order_line:
+            #    worksheet.write(row, 0, line.name, table_row_left)
+            #    worksheet.write(row, 1, line.product_uom_qty, table_row_right)
+            #    worksheet.write(row, 2, line.price_unit, table_row_right)
+            #    if display_discount and group:
+            #        worksheet.write(row, 3, line.discount, table_row_right)
+            #        if display_tax and line.tax_id:
+            #            worksheet.write(
+            #                row, 4, line.tax_id.name, table_row_right)
+            #            worksheet.write(
+            #                row, 5, line.price_subtotal, table_row_right)
+            #            row += 1
+            #        elif not line.tax_id and display_tax:
+            #            worksheet.write(row, 4, '0', table_row_right)
+            #            worksheet.write(
+            #                row, 5, line.price_subtotal, table_row_right)
+            #            row += 1
+            #        else:
+            #            worksheet.write(
+            #                row, 4, line.price_subtotal, table_row_right)
+            #            row += 1
+            #    elif display_tax:
+            #        if display_tax and line.tax_id:
+            #            worksheet.write(
+            #                row, 3, line.tax_id.name, table_row_right)
+            #            worksheet.write(
+            #                row, 4, line.price_subtotal, table_row_right)
+            #            row += 1
+            #        elif not line.tax_id:
+            #            worksheet.write(row, 3, '0', table_row_right)
+            #            worksheet.write(
+            #                row, 4, line.price_subtotal, table_row_right)
+            #            row += 1
+            #        else:
+            #            worksheet.write(
+            #                row, 3, line.price_subtotal, table_row_right)
+            #            row += 1
+            #    else:
+            #        worksheet.write(
+            #            row, 3, line.price_subtotal, table_row_right)
+            #        row += 1
+            #if display_discount and group and display_tax:
+            #    worksheet.merge_range(row, 0, row, 5, '')
+            #    worksheet.write(row + 1, 4, 'Untaxed Amount', table_left)
+            #    worksheet.write(row + 1, 5, obj.amount_untaxed, table_right)
+            #    worksheet.write(row + 2, 4, 'Taxes', table_left)
+            #    worksheet.write(row + 2, 5, obj.amount_tax, table_right)
+            #    worksheet.write(row + 3, 4, 'Total', table_left)
+            #    worksheet.write(row + 3, 5, obj.amount_total, table_right)
+            #elif not group and not display_tax and not display_discount:
+            #    worksheet.merge_range(row, 0, row, 3, '')
+            #    worksheet.write(row + 1, 2, 'Subtotal', table_left)
+            #    worksheet.write(row + 1, 3, obj.amount_untaxed, table_right)
+            #    worksheet.write(row + 2, 2, 'Total', table_left)
+            #    worksheet.write(row + 2, 3, obj.amount_total, table_right)
+            #elif not group and not display_tax:
+            #    worksheet.merge_range(row, 0, row, 3, '')
+            #    worksheet.write(row + 1, 2, 'Subtotal', table_left)
+            #    worksheet.write(row + 1, 3, obj.amount_untaxed, table_right)
+            #    worksheet.write(row + 2, 2, 'Total', table_left)
+            #    worksheet.write(row + 2, 3, obj.amount_total, table_right)
+            #elif not display_tax and not display_discount:
+            #    worksheet.merge_range(row, 0, row, 3, '')
+            #    worksheet.write(row + 1, 2, 'Subtotal', table_left)
+            #    worksheet.write(row + 1, 3, obj.amount_untaxed, table_right)
+            #    worksheet.write(row + 2, 2, 'Total', table_left)
+            #    worksheet.write(row + 2, 3, obj.amount_total, table_right)
+            #elif group and display_discount:
+            #    worksheet.merge_range(row, 0, row, 4, '')
+            #    worksheet.write(row + 1, 3, 'Subtotal', table_left)
+            #    worksheet.write(row + 1, 4, obj.amount_untaxed, table_right)
+            #    worksheet.write(row + 2, 3, 'Total', table_left)
+            #    worksheet.write(row + 2, 4, obj.amount_total, table_right)
+            #elif display_tax:
+            #    worksheet.merge_range(row, 0, row, 4, '')
+            #    worksheet.write(row + 1, 3, 'Subtotal', table_left)
+            #    worksheet.write(row + 1, 4, obj.amount_untaxed, table_right)
+            #    worksheet.write(row + 2, 3, 'Taxes', table_left)
+            #    worksheet.write(row + 2, 4, obj.amount_tax, table_right)
+            #    worksheet.write(row + 3, 3, 'Total', table_left)
+            #    worksheet.write(row + 3, 4, obj.amount_total, table_right)
