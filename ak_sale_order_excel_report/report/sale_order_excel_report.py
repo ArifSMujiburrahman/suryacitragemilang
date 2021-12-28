@@ -1,16 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Aktiv Software
-# See LICENSE file for full copyright & licensing details.
-
-from odoo import models
-from datetime import datetime
-
-
-class PartnerXlsx(models.AbstractModel):
-    _name = 'report.ak_sale_order_excel_report.sale_xlsx'
-    _description = 'Sale Oder Excle Report'
-    _inherit = 'report.report_xlsx.abstract'
-
+# Part of Aktiv Softwarea
     def generate_xlsx_report(self, workbook, data, partners):
         for obj in partners:
             customer_data = ''
@@ -33,7 +22,7 @@ class PartnerXlsx(models.AbstractModel):
             customer_header_format = workbook.add_format({
                 'align': 'center', 'font_size': 11, 'border': 1})
             customer_format = workbook.add_format({
-                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'datetime':'d mmm yyyy'})
+                'align': 'center', 'font_size': 11, 'border': 1, 'bold': True, 'num_format':'d mmm yyyy'})
             header_format = workbook.add_format({
                 'align': 'center', 'font_size': 9})
             table_left = workbook.add_format(
