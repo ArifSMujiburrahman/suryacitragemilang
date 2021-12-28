@@ -107,15 +107,13 @@ class PartnerXlsx(models.AbstractModel):
             worksheet.set_column('E:E', 9)
             worksheet.set_column('F:F', 9)
 
-             group = self.env.user.has_group(
+            group = self.env.user.has_group(
                 'product.group_discount_per_so_line')
             display_discount = any([l.discount for l in obj.order_line])
             display_tax = any([l.tax_id for l in obj.order_line])
             worksheet.write(row, 0, 'Product', table_header_left)
             worksheet.write(row, 1, 'Quantity', table_header_right)
             worksheet.write(row, 2, 'Unit Price', table_header_right)
-            worksheet.write(row, 6, 'Satuan', table_header_right)
-           
             if display_discount and group:
                 worksheet.write(row, 3, 'Disc.%', table_header_right)
                 if display_tax:
@@ -134,8 +132,6 @@ class PartnerXlsx(models.AbstractModel):
                 worksheet.write(row, 0, line.name, table_row_left)
                 worksheet.write(row, 1, line.product_uom_qty, table_row_right)
                 worksheet.write(row, 2, line.price_unit, table_row_right)
-                worksheet.write(row, 6, line.product_uom.name, table_row_left)
-                
                 if display_discount and group:
                     worksheet.write(row, 3, line.discount, table_row_right)
                     if display_tax and line.tax_id:
