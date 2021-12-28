@@ -112,9 +112,9 @@ class PartnerXlsx(models.AbstractModel):
             #    'product.group_discount_per_so_line')
             #display_discount = any([l.discount for l in obj.order_line])
             #display_tax = any([l.tax_id for l in obj.order_line])
-            #worksheet.write(row, 0, 'Product', table_header_left)
-            #worksheet.write(row, 1, 'Quantity', table_header_right)
-            #worksheet.write(row, 2, 'Unit Price', table_header_right)
+            worksheet.write(row, 0, 'Product', table_header_left)
+            worksheet.write(row, 1, 'Quantity', table_header_right)
+            worksheet.write(row, 2, 'Unit Price', table_header_right)
             #if display_discount and group:
             #    worksheet.write(row, 3, 'Disc.%', table_header_right)
             #    if display_tax:
@@ -130,9 +130,9 @@ class PartnerXlsx(models.AbstractModel):
             #row += 1
 
             #for line in obj.order_line:
-            #    worksheet.write(row, 0, line.name, table_row_left)
-            #    worksheet.write(row, 1, line.product_uom_qty, table_row_right)
-            #    worksheet.write(row, 2, line.price_unit, table_row_right)
+                worksheet.write(row, 0, line.name, table_row_left)
+                worksheet.write(row, 1, line.product_uom_qty, table_row_right)
+                worksheet.write(row, 2, line.price_unit, table_row_right)
             #    if display_discount and group:
             #        worksheet.write(row, 3, line.discount, table_row_right)
             #        if display_tax and line.tax_id:
